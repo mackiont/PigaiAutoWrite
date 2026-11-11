@@ -123,18 +123,15 @@ class App:
         paned.pack(fill="both", expand=True, padx=10, pady=4)
 
         # 上半：作文正文输入区 + 按钮
+        # 注意打包顺序：先让按钮行用 side="bottom" 占住上栏底部，
+        # 否则正文输入框(expand=True)会把按钮挤出可视区域（按钮行被裁切成 0 高度）
         essay_frame = ttk.Frame(paned)
         paned.add(essay_frame, weight=3)
         ttk.Label(essay_frame, text="作文正文（直接在下面粘贴，保留原有的空格与换行）:").pack(
             anchor="w"
         )
-        self.essay_text = scrolledtext.ScrolledText(
-            essay_frame, font=("微软雅黑", 11), wrap="word", undo=True
-        )
-        self.essay_text.pack(fill="both", expand=True, pady=(4, 6))
-
         btns = ttk.Frame(essay_frame)
-        btns.pack(fill="x")
+        btns.pack(side="bottom", fill="x")
         self.start_btn = ttk.Button(
             btns, text="开始录入（先在 Chrome 里登录）", command=self.on_start
         )
@@ -144,6 +141,11 @@ class App:
         )
         self.count_label = ttk.Label(btns, text="", foreground="gray")
         self.count_label.pack(side="right")
+
+        self.essay_text = scrolledtext.ScrolledText(
+            essay_frame, font=("微软雅黑", 11), wrap="word", undo=True
+        )
+        self.essay_text.pack(fill="both", expand=True, pady=(4, 6))
 
         # 下半：日志区
         log_frame = ttk.Frame(paned)
