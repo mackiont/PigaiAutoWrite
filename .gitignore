@@ -1,0 +1,20 @@
+# 敏感信息：批改网登录凭据（cookie），绝不入库
+pigai_cookies.json
+*.cookie
+
+# 个人作文草稿
+essay_body.txt
+*.essay.txt
+
+# 会话/工作区内部文件
+.workbuddy/
+__pycache__/
+*.pyc
+
+# 会话期调试辅助脚本（非程序本体）
+cdp.js
+cdp_input.js
+
+# 系统文件
+Thumbs.db
+Desktop.ini
