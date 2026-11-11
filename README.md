@@ -47,8 +47,8 @@ python pigai_autowrite_gui.py
 ```bash
 python pigai_autowrite.py                # 运行后在控制台粘贴作文，以单独一行 EOF 结束
 python pigai_autowrite.py essay.txt      # 直接读取作文文件
-python pigai_autowrite.py -r 3444331     # 指定作文编号
-python pigai_autowrite.py -r 3444331 essay.txt
+python pigai_autowrite.py -r 3444000     # 指定作文编号
+python pigai_autowrite.py -r 3444000 essay.txt
 ```
 
 ### 命令行参数
